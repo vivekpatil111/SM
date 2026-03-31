@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LecturePulse — Lecture Quality Survey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap%22 rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -14,251 +14,171 @@
   --border:#E2E0DA;
 }
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-
+ 
 #prog-wrap{position:fixed;top:0;left:0;right:0;height:5px;background:var(--border);z-index:200}
 #prog-bar{height:100%;background:linear-gradient(90deg,var(--accent),#FF8C5A);width:0%;transition:width .6s ease}
-
-nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;z-index:199;background:rgba(245,243,238,.95);backdrop-filter:blur(8px)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--navy);letter-spacing:-.5px;white-space:nowrap}
+ 
+nav{position:fixed;top:5px;left:0;right:0;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;z-index:199;background:rgba(245,243,238,.93);backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-.5px}
 .nav-logo span{color:var(--accent)}
-#nav-info{font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap}
-
-/* ── PAGE SYSTEM (BUG FIX: removed display:none conflict) ── */
-.page{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:80px 16px 52px;
-  visibility:hidden;
-  position:absolute;
-  top:0;left:0;right:0;
-  opacity:0;
-  pointer-events:none;
-}
-.page.active{
-  visibility:visible;
-  position:relative;
-  opacity:1;
-  pointer-events:auto;
-}
-
+#nav-info{font-size:13px;color:var(--muted);font-weight:700}
+ 
+.page{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px 52px}
+.page.active{display:flex}
+ 
 #p-welcome{text-align:center}
 .badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--border);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:28px}
 .badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(45,191,106,.2)}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(30px,8vw,62px);font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:-1.5px;margin-bottom:18px}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(34px,6vw,62px);font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:-2px;margin-bottom:18px}
 .hero-title em{font-style:normal;color:var(--accent)}
-.hero-sub{font-size:16px;line-height:1.65;color:var(--muted);max-width:460px;margin:0 auto 32px}
-.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.chip{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--text);background:var(--white);border:1.5px solid var(--border);border-radius:100px;padding:6px 12px}
+.hero-sub{font-size:17px;line-height:1.65;color:var(--muted);max-width:460px;margin:0 auto 32px}
+.chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.chip{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--text);background:var(--white);border:1.5px solid var(--border);border-radius:100px;padding:7px 14px}
 .chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-
-.section-header{max-width:680px;width:100%;text-align:center;margin-bottom:28px}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(22px,5vw,38px);font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:8px}
-.section-sub{font-size:14px;color:var(--muted);font-weight:500;padding:0 8px}
-
-.btn-primary{background:var(--navy);color:#fff;border:none;border-radius:13px;padding:14px 32px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .22s ease;display:inline-flex;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent}
+ 
+.section-header{max-width:680px;width:100%;text-align:center;margin-bottom:32px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:8px}
+.section-sub{font-size:15px;color:var(--muted);font-weight:500}
+ 
+.btn-primary{background:var(--navy);color:#fff;border:none;border-radius:13px;padding:15px 40px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .22s ease;display:inline-flex;align-items:center;gap:8px}
 .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,93,38,.3)}
-.btn-primary:active{transform:translateY(0)}
 .btn-primary:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
-.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border);border-radius:12px;padding:12px 18px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border);border-radius:12px;padding:13px 22px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s}
 .btn-outline:hover{border-color:var(--navy);color:var(--navy)}
-
-/* ── BRANCH GRID (MOBILE FIX) ── */
-.branch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;max-width:820px;width:100%;margin-bottom:24px}
-@media(max-width:400px){
-  .branch-grid{grid-template-columns:1fr 1fr}
-}
-.branch-card{background:var(--white);border:2.5px solid var(--border);border-radius:16px;padding:20px 12px;cursor:pointer;transition:all .22s ease;text-align:center;position:relative;-webkit-tap-highlight-color:transparent}
-.branch-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 10px 28px rgba(27,42,74,.1)}
-.branch-card.sel{border-color:var(--accent);box-shadow:0 6px 20px rgba(232,93,38,.2)}
-.sel-check{position:absolute;top:8px;right:8px;width:20px;height:20px;background:var(--accent);border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800}
+ 
+.branch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:13px;max-width:820px;width:100%;margin-bottom:28px}
+.branch-card{background:var(--white);border:2.5px solid var(--border);border-radius:18px;padding:26px 16px;cursor:pointer;transition:all .22s ease;text-align:center;position:relative}
+.branch-card:hover{border-color:var(--navy);transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,42,74,.12)}
+.branch-card.sel{border-color:var(--accent);box-shadow:0 8px 24px rgba(232,93,38,.2)}
+.sel-check{position:absolute;top:10px;right:10px;width:22px;height:22px;background:var(--accent);border-radius:50%;display:none;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800}
 .branch-card.sel .sel-check{display:flex}
-.b-emoji{font-size:30px;margin-bottom:10px;display:block;transition:transform .2s}
+.b-emoji{font-size:36px;margin-bottom:12px;display:block;transition:transform .2s}
 .branch-card.sel .b-emoji{transform:scale(1.12)}
-.b-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:3px;line-height:1.3}
+.b-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:3px;line-height:1.3}
 .branch-card.sel .b-name{color:var(--accent)}
-.b-code{font-size:11px;color:var(--muted);font-weight:700}
-
-.subject-list{max-width:600px;width:100%;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.subj-item{background:var(--white);border:2px solid var(--border);border-radius:13px;padding:13px 15px;display:flex;align-items:center;gap:11px;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
-.subj-item:hover{border-color:var(--blue)}
-.subj-item:active{transform:scale(.98)}
+.b-code{font-size:12px;color:var(--muted);font-weight:700}
+ 
+.subject-list{max-width:600px;width:100%;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.subj-item{background:var(--white);border:2px solid var(--border);border-radius:13px;padding:15px 18px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:all .2s}
+.subj-item:hover{border-color:var(--blue);transform:translateX(3px)}
 .subj-item.sel{border-color:var(--blue);background:#EFF6FF}
-.s-box{width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;transition:all .2s;color:transparent}
+.s-box{width:24px;height:24px;border-radius:7px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;transition:all .2s;color:transparent}
 .subj-item.sel .s-box{background:var(--blue);border-color:var(--blue);color:#fff}
-.s-info{flex:1;min-width:0}
-.s-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.s-teacher{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.s-tag{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;background:var(--bg);color:var(--muted);white-space:nowrap;flex-shrink:0}
-.btn-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
-
-#p-survey{justify-content:flex-start;padding-top:76px;padding-bottom:60px}
+.s-info{flex:1}
+.s-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:2px}
+.s-teacher{font-size:12.5px;color:var(--muted);font-weight:600}
+.s-tag{font-size:11px;font-weight:800;padding:4px 10px;border-radius:6px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.btn-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
+ 
+#p-survey{justify-content:flex-start;padding-top:80px;padding-bottom:60px}
 .survey-page-wrap{max-width:720px;width:100%}
-
-/* ── SUBJECT HEADER (MOBILE FIX) ── */
-.subj-header{background:var(--navy);border-radius:18px;padding:22px 22px;margin-bottom:22px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.subj-header-label{font-size:10px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:4px}
-.subj-header-name{font-family:'Syne',sans-serif;font-size:clamp(16px,4vw,22px);font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.2}
-.subj-header-teacher{font-size:12.5px;color:rgba(255,255,255,.6);font-weight:600;margin-top:4px}
-.subj-header-right{text-align:right;flex-shrink:0}
-.subj-counter-label{font-size:10px;color:rgba(255,255,255,.45);font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
-.subj-counter-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff}
-.subj-answered-badge{display:inline-block;background:rgba(255,255,255,.12);border-radius:8px;padding:3px 9px;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);margin-top:4px}
-
-.questions-stack{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-.q-row{background:var(--white);border-radius:16px;padding:22px 20px;border:2px solid var(--border);transition:border-color .2s,box-shadow .2s}
+ 
+.subj-header{background:var(--navy);border-radius:20px;padding:28px 32px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.subj-header-label{font-size:11px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px}
+.subj-header-name{font-family:'Syne',sans-serif;font-size:clamp(18px,3vw,24px);font-weight:800;color:#fff;letter-spacing:-.5px}
+.subj-header-teacher{font-size:13.5px;color:rgba(255,255,255,.6);font-weight:600;margin-top:4px}
+.subj-header-right{text-align:right}
+.subj-counter-label{font-size:11px;color:rgba(255,255,255,.45);font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px}
+.subj-counter-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff}
+.subj-answered-badge{display:inline-block;background:rgba(255,255,255,.12);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);margin-top:5px}
+ 
+/* ── SCALE HINT ── */
+.scale-hint{background:#FFF8E6;border:1.5px solid #FFE4A0;border-radius:12px;padding:12px 18px;font-size:13.5px;color:#7A5C00;font-weight:600;margin-bottom:16px;text-align:center;line-height:1.5}
+.scale-hint strong{color:#4A3500;font-weight:800}
+ 
+.questions-stack{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.q-row{background:var(--white);border-radius:18px;padding:26px 30px;border:2px solid var(--border);transition:border-color .2s,box-shadow .2s}
 .q-row.answered{border-color:rgba(45,191,106,.5);box-shadow:0 2px 12px rgba(45,191,106,.08)}
-.q-row-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:4px}
-.q-num{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:var(--accent);letter-spacing:1.1px;text-transform:uppercase;white-space:nowrap;padding-top:2px}
-.q-answered-mark{width:18px;height:18px;border-radius:50%;background:var(--green);display:none;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:900;flex-shrink:0}
+.q-row-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:5px}
+.q-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;color:var(--accent);letter-spacing:1.1px;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+.q-answered-mark{width:20px;height:20px;border-radius:50%;background:var(--green);display:none;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:900;flex-shrink:0}
 .q-row.answered .q-answered-mark{display:flex}
-.q-text{font-family:'Syne',sans-serif;font-size:clamp(14px,3vw,16px);font-weight:700;color:var(--navy);line-height:1.35;flex:1;margin-bottom:5px}
-.q-desc{font-size:12.5px;color:var(--muted);font-weight:500;margin-bottom:18px;line-height:1.5}
-
-/* ── RATING DOTS (MOBILE FIX) ── */
-.rating-block{display:flex;flex-direction:column;gap:8px}
+.q-text{font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,17px);font-weight:700;color:var(--navy);line-height:1.35;flex:1;margin-bottom:6px}
+.q-desc{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:20px;line-height:1.5}
+ 
+.rating-block{display:flex;flex-direction:column;gap:9px}
 .r-extremes{display:flex;justify-content:space-between;gap:8px}
-.r-extreme{font-size:11.5px;color:var(--muted);font-weight:700;line-height:1.3;max-width:130px}
+.r-extreme{font-size:12px;color:var(--muted);font-weight:700;line-height:1.3;max-width:130px}
 .r-extreme.right{text-align:right}
-.r-dots{display:flex;justify-content:space-between;gap:3px}
-.rdot{
-  flex:1;
-  height:40px;
-  border-radius:10px;
-  border:2px solid var(--border);
-  cursor:pointer;
-  transition:all .15s ease;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Syne',sans-serif;
-  font-size:12px;
-  font-weight:700;
-  color:var(--muted);
-  background:var(--bg);
-  user-select:none;
-  -webkit-tap-highlight-color:transparent;
-  min-width:0;
-}
-.rdot:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.1)}
-.rdot:active{transform:scale(.95)}
-.rdot.active{background:var(--navy);border-color:var(--navy);color:#fff;transform:scale(1.12);box-shadow:0 4px 12px rgba(27,42,74,.25)}
-.rdot.near{background:rgba(27,42,74,.07);border-color:rgba(27,42,74,.22);color:var(--navy)}
-
+.r-dots{display:flex;justify-content:space-between;gap:5px}
+.rdot{flex:1;aspect-ratio:1;max-width:52px;min-width:22px;border-radius:50%;border:2.5px solid var(--border);cursor:pointer;transition:all .15s ease;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--muted);background:var(--bg);user-select:none;-webkit-tap-highlight-color:transparent}
+.rdot:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.18)}
+.rdot.active{background:var(--navy);border-color:var(--navy);color:#fff;transform:scale(1.22);box-shadow:0 4px 14px rgba(27,42,74,.28)}
+.rdot.near{background:rgba(27,42,74,.08);border-color:rgba(27,42,74,.28);color:var(--navy)}
+ 
 .survey-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:4px 0}
-.answered-info{font-size:13px;font-weight:700;color:var(--muted)}
+.answered-info{font-size:14px;font-weight:700;color:var(--muted)}
 .answered-info strong{color:var(--navy)}
 .survey-bottom-btns{display:flex;gap:10px;flex-wrap:wrap}
-
+ 
 #p-complete{text-align:center}
-.complete-ring{width:80px;height:80px;background:linear-gradient(135deg,#E8F8F0,#C6F0DA);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;margin:0 auto 22px;animation:popIn .5s .1s cubic-bezier(.34,1.56,.64,1) both}
+.complete-ring{width:88px;height:88px;background:linear-gradient(135deg,#E8F8F0,#C6F0DA);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:42px;margin:0 auto 26px;animation:popIn .5s .1s cubic-bezier(.34,1.56,.64,1) both}
 @keyframes popIn{from{scale:0;opacity:0}to{scale:1;opacity:1}}
-.complete-title{font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,46px);font-weight:800;color:var(--navy);letter-spacing:-1.5px;margin-bottom:10px}
-.complete-sub{font-size:14px;color:var(--muted);line-height:1.6;max-width:400px;margin:0 auto 24px;padding:0 8px}
-.result-cards{display:flex;flex-direction:column;gap:9px;max-width:420px;width:100%;margin:0 auto 28px}
-.result-card{background:var(--white);border:1.5px solid var(--border);border-radius:13px;padding:13px 16px;display:flex;align-items:center;gap:11px}
-.result-score{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;flex-shrink:0}
+.complete-title{font-family:'Syne',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:800;color:var(--navy);letter-spacing:-1.5px;margin-bottom:12px}
+.complete-sub{font-size:15px;color:var(--muted);line-height:1.6;max-width:420px;margin:0 auto 28px}
+.result-cards{display:flex;flex-direction:column;gap:10px;max-width:420px;width:100%;margin:0 auto 32px}
+.result-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.result-score{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;flex-shrink:0}
 .score-high{background:#E8F8F0;color:#1A8C4E}
 .score-mid{background:#FFF8E6;color:#C07B00}
 .score-low{background:#FFF0ED;color:#C03010}
-.result-info{flex:1;text-align:left;min-width:0}
-.result-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.result-teacher{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-/* ── SUBMIT OVERLAY ── */
+.result-info{flex:1;text-align:left}
+.result-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--navy)}
+.result-teacher{font-size:12.5px;color:var(--muted);font-weight:600}
+ 
 #submit-overlay{display:none;position:fixed;inset:0;background:rgba(27,42,74,.75);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 #submit-overlay.active{display:flex}
 .submit-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.submit-msg{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#fff;text-align:center;max-width:260px;line-height:1.4;padding:0 20px}
-
-/* ── ERROR TOAST ── */
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#E63946;color:#fff;padding:11px 22px;border-radius:12px;font-size:13px;font-weight:700;z-index:1001;transition:transform .3s ease;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center}
+.submit-msg{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;text-align:center;max-width:260px;line-height:1.4}
+ 
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#E63946;color:#fff;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:700;z-index:1001;transition:transform .3s ease;pointer-events:none;white-space:nowrap}
 #toast.show{transform:translateX(-50%) translateY(0)}
-
-/* ── REACTION POPUP ── */
+ 
 #rp-overlay{position:fixed;inset:0;background:rgba(27,42,74,.4);z-index:997;display:none;backdrop-filter:blur(2px)}
 #rp-overlay.show{display:block}
-#reaction-popup{
-  position:fixed;top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0);
-  background:var(--white);border-radius:24px;
-  padding:32px 28px;text-align:center;
-  z-index:998;
-  box-shadow:0 20px 56px rgba(27,42,74,.22);
-  transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;
-  opacity:0;pointer-events:none;
-  width:min(340px, 90vw);
-}
+#reaction-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:var(--white);border-radius:28px;padding:36px 44px;text-align:center;z-index:998;box-shadow:0 24px 64px rgba(27,42,74,.25);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;opacity:0;pointer-events:none;min-width:280px;max-width:340px;width:88%}
 #reaction-popup.show{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
-.rp-emoji{font-size:60px;display:block;margin-bottom:8px;animation:wobble .7s ease}
+.rp-emoji{font-size:68px;display:block;margin-bottom:10px;animation:wobble .7s ease}
 @keyframes wobble{0%,100%{transform:rotate(0)}20%{transform:rotate(-10deg)}60%{transform:rotate(8deg)}}
-.rp-label{font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;color:var(--muted)}
-.rp-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:5px}
-.rp-sub{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:18px;line-height:1.5}
-.rp-score-pill{display:inline-block;padding:5px 14px;border-radius:100px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:800;margin-bottom:16px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rp-btn{background:var(--navy);color:#fff;border:none;border-radius:12px;padding:13px 28px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;width:100%;-webkit-tap-highlight-color:transparent}
+.rp-label{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;color:var(--muted)}
+.rp-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.rp-sub{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:22px;line-height:1.5}
+.rp-score-pill{display:inline-block;padding:5px 16px;border-radius:100px;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;margin-bottom:18px}
+.rp-btn{background:var(--navy);color:#fff;border:none;border-radius:12px;padding:13px 32px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;width:100%}
 .rp-btn:hover{background:var(--accent)}
-
-/* ── HONEST NUDGE ── */
+ 
 #nudge-overlay{position:fixed;inset:0;background:rgba(27,42,74,.4);z-index:997;display:none;backdrop-filter:blur(2px)}
 #nudge-overlay.show{display:block}
-#nudge-modal{
-  position:fixed;top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0);
-  background:var(--white);border-radius:22px;
-  padding:28px 24px;text-align:center;
-  z-index:998;
-  box-shadow:0 18px 48px rgba(27,42,74,.18);
-  transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s;
-  opacity:0;pointer-events:none;
-  width:min(330px, 90vw);
-}
+#nudge-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:var(--white);border-radius:24px;padding:32px 32px;text-align:center;z-index:998;box-shadow:0 20px 56px rgba(27,42,74,.2);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s;opacity:0;pointer-events:none;max-width:330px;width:88%}
 #nudge-modal.show{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
-.nm-emoji{font-size:40px;margin-bottom:8px;display:block}
-.nm-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px}
-.nm-sub{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.nm-emoji{font-size:44px;margin-bottom:10px;display:block}
+.nm-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.nm-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
 .nm-btns{display:flex;gap:10px;justify-content:center}
-.nm-btns button{border-radius:11px;padding:11px 14px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;cursor:pointer;border:none;transition:all .2s;flex:1;-webkit-tap-highlight-color:transparent}
+.nm-btns button{border-radius:11px;padding:11px 18px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s;flex:1}
 #nm-reconsider{background:var(--accent);color:#fff}
 #nm-reconsider:hover{background:#c94e1f}
 #nm-proceed{background:var(--bg);color:var(--muted);border:2px solid var(--border)}
 #nm-proceed:hover{border-color:var(--navy);color:var(--navy)}
-
-/* ── MOBILE OVERRIDES ── */
-@media(max-width:480px){
-  .page{padding:72px 12px 44px}
-  #p-survey{padding-top:70px}
-  .q-row{padding:18px 14px}
-  .subj-header{padding:18px 16px}
+ 
+@media(max-width:580px){
+  .q-row{padding:20px 16px}
+  .subj-header{padding:20px 18px}
   .r-extremes{display:none}
-  .rdot{height:36px;font-size:11px;border-radius:8px;gap:0}
-  .survey-bottom{flex-direction:column;align-items:stretch}
-  .survey-bottom-btns{flex-direction:column}
-  .survey-bottom-btns .btn-primary,
-  .survey-bottom-btns .btn-outline{width:100%;justify-content:center}
-  .btn-row{flex-direction:column;width:100%;max-width:340px}
-  .btn-row .btn-primary,
-  .btn-row .btn-outline{width:100%;justify-content:center}
-  .chips{gap:7px}
-  .chip{font-size:11px;padding:5px 10px}
+  .rdot{font-size:11.5px}
 }
 </style>
 </head>
 <body>
-
-<!-- SUBMIT OVERLAY -->
+ 
 <div id="submit-overlay">
   <div class="submit-spinner"></div>
   <div class="submit-msg" id="submit-msg-text">Saving your responses...</div>
 </div>
-
-<!-- ERROR TOAST -->
+ 
 <div id="toast"></div>
-
-<!-- REACTION POPUP -->
+ 
 <div id="rp-overlay" onclick="closeReaction()"></div>
 <div id="reaction-popup">
   <span class="rp-emoji" id="rp-emoji"></span>
@@ -268,8 +188,7 @@ nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify
   <div class="rp-score-pill" id="rp-score-pill"></div>
   <button class="rp-btn" id="rp-btn" onclick="closeReaction()">Continue →</button>
 </div>
-
-<!-- HONEST NUDGE MODAL -->
+ 
 <div id="nudge-overlay"></div>
 <div id="nudge-modal">
   <span class="nm-emoji">🤔</span>
@@ -280,26 +199,26 @@ nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify
     <button id="nm-proceed" onclick="closeNudge(true)">Looks right to me</button>
   </div>
 </div>
-
+ 
 <div id="prog-wrap"><div id="prog-bar"></div></div>
 <nav>
   <div class="nav-logo">Lecture<span>Pulse</span></div>
   <div id="nav-info"></div>
 </nav>
-
+ 
 <!-- WELCOME -->
 <div class="page active" id="p-welcome">
   <div class="badge">Anonymous · Confidential</div>
   <h1 class="hero-title">How boring was<br>your <em>lecture?</em></h1>
-  <p class="hero-sub">Rate your lectures across 11 research-backed parameters. Your honest feedback builds a better classroom — for everyone.</p>
+  <p class="hero-sub">Rate your lectures across 10 research-backed parameters. Your honest feedback builds a better classroom — for everyone.</p>
   <div class="chips">
-    <div class="chip"><div class="dot" style="background:var(--accent)"></div>11 parameters per subject</div>
-    <div class="chip"><div class="dot" style="background:var(--blue)"></div>~5 mins per subject</div>
+    <div class="chip"><div class="dot" style="background:var(--accent)"></div>10 parameters per subject</div>
+    <div class="chip"><div class="dot" style="background:var(--blue)"></div>~5 minutes per subject</div>
     <div class="chip"><div class="dot" style="background:var(--green)"></div>100% anonymous</div>
   </div>
   <button class="btn-primary" onclick="goTo('p-branch')">Start Survey →</button>
 </div>
-
+ 
 <!-- BRANCH -->
 <div class="page" id="p-branch">
   <div class="section-header">
@@ -309,12 +228,12 @@ nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify
   <div class="branch-grid" id="branch-grid"></div>
   <button class="btn-primary" id="btn-branch-next" onclick="goTo('p-subjects')" disabled>Continue →</button>
 </div>
-
+ 
 <!-- SUBJECT SELECT -->
 <div class="page" id="p-subjects">
   <div class="section-header">
     <h2 class="section-title">Select Subjects to Rate</h2>
-    <p class="section-sub">Tick all subjects you want to give feedback for. Each will have its own page with 11 questions.</p>
+    <p class="section-sub">Tick all subjects you want to give feedback for. Each will have its own page with 10 questions.</p>
   </div>
   <div class="subject-list" id="subject-list"></div>
   <div class="btn-row">
@@ -322,12 +241,12 @@ nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify
     <button class="btn-primary" id="btn-subj-next" onclick="startSurvey()" disabled>Begin Survey →</button>
   </div>
 </div>
-
+ 
 <!-- SURVEY -->
 <div class="page" id="p-survey">
   <div class="survey-page-wrap" id="survey-page-wrap"></div>
 </div>
-
+ 
 <!-- COMPLETE -->
 <div class="page" id="p-complete">
   <div class="complete-ring">✓</div>
@@ -336,12 +255,8 @@ nav{position:fixed;top:5px;left:0;right:0;padding:12px 18px;display:flex;justify
   <div class="result-cards" id="result-cards"></div>
   <button class="btn-primary" onclick="restartSurvey()">Submit Another Response</button>
 </div>
-
+ 
 <script>
-// ── APPS SCRIPT URL ────────────────────────────────────────────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx06u1NevU9hYBo1XqZlMUCNp59sv-SKKAn06G5wcqLpLViHHNOxq7wiLBuswfjz4jkJw/exec';
-
-// ── REAL COLLEGE DATA ──────────────────────────────────────────────────────
 const BRANCHES = [
   {
     id: 'it_lr13',
@@ -455,7 +370,8 @@ const BRANCHES = [
     ]
   },
 ];
-
+ 
+// Q9 (Relevance) removed — now 10 questions total
 const QUESTIONS = [
   { param:'Focus',          text:"How often did you lose focus during this semester's lectures?",  desc:'Think about how many times your mind wandered or you zoned out overall.',         left:'Always zoned out 😴',     right:'Always focused 🔥'        },
   { param:'Delivery',       text:"How engaging was the teacher's delivery style overall?",         desc:'Consider energy, expression, and whether the style kept you hooked or not.',      left:'Extremely boring 😑',     right:'Super engaging ⚡'         },
@@ -465,27 +381,30 @@ const QUESTIONS = [
   { param:'Examples',       text:'How often were real-life examples used to explain concepts?',     desc:'Were theories connected to actual scenarios that made sense to you?',             left:'Never, only theory 📖',   right:'Always relatable 🌍'       },
   { param:'Clarity',        text:'How clearly were concepts explained this semester?',              desc:'After lectures, did you feel confident about the topic or still confused?',       left:'Always confusing 😵',     right:'Crystal clear 💎'          },
   { param:'Enthusiasm',     text:'How passionate did the teacher seem about the subject?',          desc:'Did the faculty appear genuinely interested, or just going through the motions?', left:'Clearly disengaged 🥱',   right:'Highly passionate ❤️'      },
-  { param:'Relevance',      text:'How well did the content connect to the real world?',             desc:'Did topics link to industry, technology, or problems you actually care about?',   left:'Zero connection 🚫',      right:'Perfectly linked 🔗'       },
   { param:'Time Feel',      text:'How fast did time feel during lectures this semester?',           desc:'Did lectures drag on forever, or did the hour fly by without you noticing?',      left:'Dragged like forever ⏳', right:'Always flew by 🚀'          },
   { param:'Overall Boring', text:"Overall, how boring were this semester's lectures?",              desc:'Your gut feeling — not individual classes, but the semester as a whole.',         left:'Extremely boring 😴',     right:'Not boring at all 🎯'      },
 ];
-
-// ── STATE ──────────────────────────────────────────────────────────────────
+ 
+const TOTAL_Q = QUESTIONS.length; // 10
+ 
+// STATE
 let selectedBranchId   = null;
 let selectedSubjectIds = [];
 let subjectOrder       = [];
 let currentSubjIdx     = 0;
 let answers            = {};
-
-// ── NAVIGATION (BUG FIX: proper visibility-based switching) ──────────────
+ 
+// NAVIGATION
 function goTo(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p => {
+    p.style.display = 'none';
+    p.classList.remove('active');
+  });
   const page = document.getElementById(id);
+  page.style.display = 'flex';
   page.classList.add('active');
-  // Animate in
   page.style.opacity = '0';
   page.style.transform = 'translateY(14px)';
-  page.style.transition = 'none';
   requestAnimationFrame(() => requestAnimationFrame(() => {
     page.style.transition = 'opacity .32s ease, transform .32s ease';
     page.style.opacity    = '1';
@@ -493,12 +412,12 @@ function goTo(id) {
   }));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
 function setProgress(pct) {
   document.getElementById('prog-bar').style.width = pct + '%';
 }
-
-// ── BRANCHES ───────────────────────────────────────────────────────────────
+ 
+// BRANCHES
 function renderBranches() {
   document.getElementById('branch-grid').innerHTML = BRANCHES.map(b => `
     <div class="branch-card" id="bc-${b.id}" onclick="selectBranch('${b.id}')">
@@ -508,7 +427,7 @@ function renderBranches() {
       <div class="b-code">${b.code}</div>
     </div>`).join('');
 }
-
+ 
 function selectBranch(id) {
   selectedBranchId = id;
   document.querySelectorAll('.branch-card').forEach(c => c.classList.remove('sel'));
@@ -517,8 +436,8 @@ function selectBranch(id) {
   renderSubjects();
   setProgress(8);
 }
-
-// ── SUBJECTS ───────────────────────────────────────────────────────────────
+ 
+// SUBJECTS
 function renderSubjects() {
   const branch = BRANCHES.find(b => b.id === selectedBranchId);
   selectedSubjectIds = [];
@@ -529,11 +448,11 @@ function renderSubjects() {
         <div class="s-name">${s.name}</div>
         <div class="s-teacher">${s.teacher}</div>
       </div>
-      <div class="s-tag">11 Q's</div>
+      <div class="s-tag">${TOTAL_Q} Q's</div>
     </div>`).join('');
   document.getElementById('btn-subj-next').disabled = true;
 }
-
+ 
 function toggleSubject(id) {
   const idx = selectedSubjectIds.indexOf(id);
   if (idx === -1) selectedSubjectIds.push(id);
@@ -541,36 +460,36 @@ function toggleSubject(id) {
   document.getElementById('si-' + id).classList.toggle('sel');
   document.getElementById('btn-subj-next').disabled = selectedSubjectIds.length === 0;
 }
-
-// ── SURVEY ─────────────────────────────────────────────────────────────────
+ 
+// SURVEY
 function startSurvey() {
   subjectOrder = [...selectedSubjectIds];
   answers = {};
-  subjectOrder.forEach(sid => answers[sid] = new Array(11).fill(null));
+  subjectOrder.forEach(sid => answers[sid] = new Array(TOTAL_Q).fill(null));
   currentSubjIdx = 0;
   setProgress(16);
   goTo('p-survey');
   renderSubjectPage();
 }
-
+ 
 function getSubject(sid) {
   return BRANCHES.find(b => b.id === selectedBranchId)?.subjects.find(s => s.id === sid);
 }
-
+ 
 function answeredCount(sid) {
   return (answers[sid] || []).filter(v => v !== null).length;
 }
-
+ 
 function renderSubjectPage() {
-  const sid     = subjectOrder[currentSubjIdx];
-  const subj    = getSubject(sid);
-  const isLast  = currentSubjIdx === subjectOrder.length - 1;
-  const nextSubj= !isLast ? getSubject(subjectOrder[currentSubjIdx + 1]) : null;
-  const count   = answeredCount(sid);
-
+  const sid      = subjectOrder[currentSubjIdx];
+  const subj     = getSubject(sid);
+  const isLast   = currentSubjIdx === subjectOrder.length - 1;
+  const nextSubj = !isLast ? getSubject(subjectOrder[currentSubjIdx + 1]) : null;
+  const count    = answeredCount(sid);
+ 
   setProgress(16 + (currentSubjIdx / subjectOrder.length) * 78);
-  document.getElementById('nav-info').textContent = `${currentSubjIdx + 1}/${subjectOrder.length}`;
-
+  document.getElementById('nav-info').textContent = `Subject ${currentSubjIdx + 1} of ${subjectOrder.length}`;
+ 
   const questionsHTML = QUESTIONS.map((q, qi) => {
     const val      = answers[sid][qi];
     const answered = val !== null;
@@ -596,7 +515,7 @@ function renderSubjectPage() {
         </div>
       </div>`;
   }).join('');
-
+ 
   document.getElementById('survey-page-wrap').innerHTML = `
     <div class="subj-header">
       <div class="subj-header-left">
@@ -606,70 +525,68 @@ function renderSubjectPage() {
       </div>
       <div class="subj-header-right">
         <div class="subj-counter-label">Answered</div>
-        <div class="subj-counter-val" id="hdr-count">${count} / 11</div>
-        <div class="subj-answered-badge" id="hdr-badge">${count === 11 ? '✓ All done!' : 'Scroll down ↓'}</div>
+        <div class="subj-counter-val" id="hdr-count">${count} / ${TOTAL_Q}</div>
+        <div class="subj-answered-badge" id="hdr-badge">${count === TOTAL_Q ? '✓ All done!' : 'Scroll down ↓'}</div>
       </div>
+    </div>
+    <div class="scale-hint">
+      📊 Rating scale: &nbsp;<strong>1 = Most boring / worst</strong> &nbsp;·&nbsp; <strong>10 = Not boring at all / great</strong>
     </div>
     <div class="questions-stack">${questionsHTML}</div>
     <div class="survey-bottom">
-      <div class="answered-info"><strong id="bottom-count">${count}</strong> of 11 answered</div>
+      <div class="answered-info"><strong id="bottom-count">${count}</strong> of ${TOTAL_Q} answered</div>
       <div class="survey-bottom-btns">
         ${currentSubjIdx > 0 ? `<button class="btn-outline" onclick="prevSubject()">← Previous</button>` : ''}
         <button class="btn-primary" id="btn-next-subj"
           onclick="${isLast ? 'finishSurvey()' : 'nextSubject()'}"
-          ${count < 11 ? 'disabled' : ''}>
+          ${count < TOTAL_Q ? 'disabled' : ''}>
           ${isLast ? 'Submit Survey ✓' : 'Next: ' + (nextSubj?.name ?? '') + ' →'}
         </button>
       </div>
     </div>`;
 }
-
+ 
 function selectRating(sid, qi, val) {
   answers[sid][qi] = val;
-
+ 
   const dotsEl = document.getElementById(`dots-${sid}-${qi}`);
   if (dotsEl) {
     dotsEl.querySelectorAll('.rdot').forEach((d, i) => {
-      const v   = i + 1;
+      const v = i + 1;
       d.className = 'rdot' + (v === val ? ' active' : Math.abs(val - v) === 1 ? ' near' : '');
     });
   }
-
+ 
   document.getElementById(`qrow-${sid}-${qi}`)?.classList.add('answered');
-
+ 
   const count       = answeredCount(sid);
   const hdrCount    = document.getElementById('hdr-count');
   const hdrBadge    = document.getElementById('hdr-badge');
   const bottomCount = document.getElementById('bottom-count');
-  if (hdrCount)    hdrCount.textContent    = `${count} / 11`;
-  if (hdrBadge)    hdrBadge.textContent    = count === 11 ? '✓ All done!' : 'Scroll down ↓';
+  if (hdrCount)    hdrCount.textContent    = `${count} / ${TOTAL_Q}`;
+  if (hdrBadge)    hdrBadge.textContent    = count === TOTAL_Q ? '✓ All done!' : 'Scroll down ↓';
   if (bottomCount) bottomCount.textContent = count;
-
+ 
   const btn = document.getElementById('btn-next-subj');
-  if (btn) btn.disabled = count < 11;
+  if (btn) btn.disabled = count < TOTAL_Q;
 }
-
+ 
 function nextSubject() {
   const sid = subjectOrder[currentSubjIdx];
-  if (checkNudge(sid, () => {
-    currentSubjIdx++;
-    goTo('p-survey');
-    renderSubjectPage();
-    showReaction(subjectOrder[currentSubjIdx - 1]);
-  })) return;
+  if (checkNudge(sid, () => { currentSubjIdx++; goTo('p-survey'); renderSubjectPage(); showReaction(sid); })) return;
   currentSubjIdx++;
   goTo('p-survey');
   renderSubjectPage();
   showReaction(subjectOrder[currentSubjIdx - 1]);
 }
-
+ 
 function prevSubject() { currentSubjIdx--; goTo('p-survey'); renderSubjectPage(); }
-
-// ── HONEST NUDGE ────────────────────────────────────────────────────────────
+ 
+// HONEST NUDGE
 let nudgeProceedCallback = null;
-
+ 
 function checkNudge(sid, onProceed) {
-  const vals = answers[sid].filter(v => v !== null);
+  const vals    = answers[sid].filter(v => v !== null);
   const allSame = vals.length > 0 && vals.every(v => v === vals[0]);
   if (allSame) {
     nudgeProceedCallback = onProceed;
@@ -679,21 +596,21 @@ function checkNudge(sid, onProceed) {
   }
   return false;
 }
-
+ 
 function closeNudge(proceed) {
   document.getElementById('nudge-overlay').classList.remove('show');
   document.getElementById('nudge-modal').classList.remove('show');
   if (proceed && nudgeProceedCallback) nudgeProceedCallback();
   nudgeProceedCallback = null;
 }
-
-// ── REACTION POPUP ──────────────────────────────────────────────────────────
+ 
+// REACTION POPUP
 function showReaction(sid) {
   const subj   = getSubject(sid);
   const scores = answers[sid].filter(v => v !== null);
-  const avg    = scores.length ? scores.reduce((a,b)=>a+b,0)/scores.length : 0;
+  const avg    = scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
   const avgStr = avg.toFixed(1);
-
+ 
   let emoji, label, title, sub, pillBg, pillColor;
   if (avg <= 3) {
     emoji='😴'; label='TOUGH CROWD'; title='Pretty boring, huh?';
@@ -712,7 +629,7 @@ function showReaction(sid) {
     sub="High scores! Great to know which faculty keeps students hooked.";
     pillBg='#E8F8F0'; pillColor='#1A8C4E';
   }
-
+ 
   document.getElementById('rp-emoji').textContent = emoji;
   document.getElementById('rp-label').textContent = label;
   document.getElementById('rp-title').textContent = title;
@@ -721,23 +638,21 @@ function showReaction(sid) {
   pill.textContent      = subj.name + ' — ' + avgStr + ' / 10';
   pill.style.background = pillBg;
   pill.style.color      = pillColor;
-
+ 
   const isLast = currentSubjIdx >= subjectOrder.length;
   document.getElementById('rp-btn').textContent = isLast ? 'See Results ✓' : 'Next Subject →';
-
+ 
   document.getElementById('rp-overlay').classList.add('show');
   document.getElementById('reaction-popup').classList.add('show');
 }
-
+ 
 function closeReaction() {
   document.getElementById('rp-overlay').classList.remove('show');
   document.getElementById('reaction-popup').classList.remove('show');
-  if (currentSubjIdx >= subjectOrder.length) {
-    submitAndFinish();
-  }
+  if (currentSubjIdx >= subjectOrder.length) submitAndFinish();
 }
-
-// ── SUBMIT + FINISH ──────────────────────────────────────────────────────────
+ 
+// SUBMIT
 const LOADING_MSGS = [
   'Sending your roast to the faculty... 🌶️',
   'Making professors a little nervous... 😅',
@@ -745,62 +660,63 @@ const LOADING_MSGS = [
   'Your feedback is becoming science... 🧪',
   'Almost there — crunching numbers... 🔢',
 ];
-
+ 
 async function finishSurvey() {
   const sid = subjectOrder[currentSubjIdx];
-  if (checkNudge(sid, () => {
-    currentSubjIdx++;
-    showReaction(sid);
-  })) return;
+  if (checkNudge(sid, () => { currentSubjIdx++; showReaction(sid); })) return;
   currentSubjIdx++;
   showReaction(sid);
 }
-
+ 
 async function submitAndFinish() {
+  const isLocal = location.protocol === 'file:';
   const overlay = document.getElementById('submit-overlay');
   const msgEl   = document.getElementById('submit-msg-text');
   overlay.classList.add('active');
   setProgress(95);
-
+ 
   let msgIdx = 0;
   msgEl.textContent = LOADING_MSGS[msgIdx];
   const msgInterval = setInterval(() => {
     msgIdx = (msgIdx + 1) % LOADING_MSGS.length;
     msgEl.textContent = LOADING_MSGS[msgIdx];
   }, 1400);
-
+ 
   const branch = BRANCHES.find(b => b.id === selectedBranchId);
-
+  let allOk = true;
+ 
   for (const sid of subjectOrder) {
     const subj = getSubject(sid);
     try {
-      await fetch(APPS_SCRIPT_URL, {
-        method : 'POST',
-        mode   : 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify({
-          timestamp : new Date().toISOString(),
-          branch    : branch.name,
-          division  : branch.code,
-          subject   : subj.name,
-          teacher   : subj.teacher,
-          answers   : answers[sid],
-        }),
-      });
-    } catch(err) {
-      console.error('Submit error:', err);
-    }
+      if (!isLocal) {
+        const res = await fetch(`${BACKEND}/api/submit`, {
+          method : 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body   : JSON.stringify({
+            timestamp : new Date().toISOString(),
+            branch    : branch.name,
+            division  : branch.code,
+            subject   : subj.name,
+            teacher   : subj.teacher,
+            answers   : answers[sid],
+          }),
+        });
+        if (!res.ok) allOk = false;
+      }
+    } catch { allOk = false; }
   }
-
+ 
   clearInterval(msgInterval);
   overlay.classList.remove('active');
   setProgress(100);
-
+ 
+  if (!allOk) showToast('Some responses could not be saved — check connection!');
+ 
   document.getElementById('nav-info').textContent = 'Complete!';
   document.getElementById('result-cards').innerHTML = subjectOrder.map(sid => {
     const subj   = getSubject(sid);
     const scores = answers[sid].filter(v => v !== null);
-    const avg    = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '–';
+    const avg    = scores.length ? (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1) : '–';
     const cls    = +avg >= 7 ? 'score-high' : +avg >= 5 ? 'score-mid' : 'score-low';
     return `
       <div class="result-card">
@@ -813,15 +729,14 @@ async function submitAndFinish() {
   }).join('');
   goTo('p-complete');
 }
-
-// ── TOAST ──────────────────────────────────────────────────────────────────
+ 
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
 }
-
+ 
 function restartSurvey() {
   selectedBranchId   = null;
   selectedSubjectIds = [];
@@ -832,8 +747,10 @@ function restartSurvey() {
   setProgress(0);
   goTo('p-welcome');
 }
-
+ 
 renderBranches();
 </script>
 </body>
 </html>
+ 
+ 
